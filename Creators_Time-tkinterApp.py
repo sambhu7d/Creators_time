@@ -2,16 +2,38 @@
 # -*- coding: utf-8 -*-
 """
 Created on Fri Jul 31 11:16:13 2020
-
 @author: sambhu7d
 """
+import pip
+import time
+
+
+def install(package):
+    if hasattr(pip, 'main'):
+        pip.main(['install', package])
+    else:
+        pip._internal.main(['install', package])
+
+
+while True:
+    
+    try:
+        modules=['requests','geocoder','tkinter','datetime']
+        for module in modules:
+            install(module)   
+        break
+    except:
+        print('Bad Internet Connection')
+        time.sleep(5)
+
 
 import requests as rq
-import json
 import datetime
 import geocoder
 import tkinter as tk
-import time
+
+
+
 
 
 class backend(object):
